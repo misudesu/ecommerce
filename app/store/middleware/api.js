@@ -1,17 +1,19 @@
+'use client'
 import axios from "axios";
-import { apiCallBegan } from "../api";
+import { apiCallBegan } from "../action_creater/api";
 const api =
     ({ dispatch }) =>(next) =>async (action) => {
         if (action.type !== apiCallBegan.type) return next(action);
-        const { url, method, data, onStart, onSuccess, onError,token } = action.payload;
+        const { url, method, data, onStart, onSuccess, onError } = action.payload;
+      
         if (onStart) dispatch({ type: onStart });
 
         try{
             const response = await axios.request({
-                baseURL: process.env.API_URL,
+                baseURL: `${process.env.API_URL}`,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token&&token?.token}`
+                   
                 },
                 url,
                 method,

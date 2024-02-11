@@ -1,13 +1,14 @@
+
 import { createSlice } from "@reduxjs/toolkit"
-import { apiCallBegan } from '../api'
+import { apiCallBegan } from '../action_creater/api'
 const initialState = {
-    user: [],
+    product: [],
     loading: false,
     error: null
 }
 
 const AuthSlice = createSlice({
-    name: 'auth',
+    name: 'product',
     initialState,
     reducers: {
         apiLoading: (state, action) => {
@@ -22,13 +23,14 @@ const AuthSlice = createSlice({
             state.user = action.payload;
             state.loading = false;
         },
-        getAuth: (state, action) => {
-            state.user = action.payload
+        getProduct: (state, action) => {
+            console.log(action,payload)
+            state.product = action.payload
         }
     }
 })
 
-const url = 'auth/login'
+const url = 'prodacuts'
 export const login = (userData) => apiCallBegan({
     url,
     method: 'POST',
@@ -37,12 +39,11 @@ export const login = (userData) => apiCallBegan({
     onError: apiLoadingField.type,
     data: userData
 })
-export const get = (userData) => apiCallBegan({
-    url: 'auth/me',
+export const get = () => apiCallBegan({
+    url: url,
     onStart: apiLoading.type,
-    onSuccess: getAuth.type,
+    onSuccess: getProduct.type,
     onError: apiLoadingField.type,
-    token: userData
 })
-export const { getAuth, loginAuth, apiLoading, apiLoadingField } = AuthSlice.actions
+export const { getProduct, loginAuth, apiLoading, apiLoadingField } = AuthSlice.actions
 export default AuthSlice.reducer

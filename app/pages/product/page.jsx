@@ -1,10 +1,12 @@
-import Tables from '@/app/components/shared/Table/table'
-import React from 'react'
+import Prodact from '@/app/components/product/view_prodact/page'
 
+import React from 'react'
 export default function ViewProduct() {
+
+ 
   return (
     <div>
-      <Tables/>
+    <Prodact/>
     </div>
   )
 }
