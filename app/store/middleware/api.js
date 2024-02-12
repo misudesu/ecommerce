@@ -1,6 +1,6 @@
-'use client'
+
 import axios from "axios";
-import { apiCallBegan } from "../action_creater/api";
+import { apiCallBegan, baseURL } from "../action_creater/api";
 const api =
     ({ dispatch }) =>(next) =>async (action) => {
         if (action.type !== apiCallBegan.type) return next(action);
@@ -10,7 +10,7 @@ const api =
 
         try{
             const response = await axios.request({
-                baseURL: `${process.env.API_URL}`,
+                baseURL: 'https://fakestoreapi.com',
                 headers: {
                     'Content-Type': 'application/json',
                    

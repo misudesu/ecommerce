@@ -5,8 +5,8 @@ export default function ViewProduct() {
 
  
   return (
-    <div>
+    <>
     <Prodact/>
-    </div>
+    </>
   )
 }

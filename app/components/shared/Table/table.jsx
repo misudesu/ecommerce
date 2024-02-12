@@ -12,7 +12,8 @@ const tableData = [
   { id: 6, name: 'David', age: 40, gender: 'Male' },
 ];
 
-const Table = () => {
+const Table = ({product}) => {
+  console.log(product)
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
