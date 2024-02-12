@@ -1,7 +1,7 @@
 'use client'
-import { StarIcon } from '@heroicons/react/24/outline'
 import React, { useEffect } from 'react'
-import Update from '../../product/update/page'
+import { StarIcon } from '@heroicons/react/24/outline'
+import IteamUpdate from '../update_product/page'
 import { Spin } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { getById } from '@/app/store/slice/product'
@@ -75,7 +75,7 @@ export default function SingleProduct({id}) {
             </div>
           </div>
 
-      <Update products={product} id={id}/>
+      <IteamUpdate products={product} id={id}/>
         </div>
       </div>
     </div>

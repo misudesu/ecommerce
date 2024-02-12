@@ -18,7 +18,7 @@ const api =
                 method,
                 data,
             });
-console.log(response)
+
             dispatch({ type: onSuccess, payload: response.data });
         }catch (error) {
             if (onError)

@@ -1,15 +1,16 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react';
-import Button from '../../shared/Buttons/button';
-import {  update } from '@/app/store/slice/product';
+import Button from '../../shared/buttons/button';
+
 import { useDispatch, useSelector } from 'react-redux';
 import {  NotificationDrawerContext } from '@/app/contexts/notification_and_Drawer_Provider';
 import Delete from '../delete/page';
 
-import Drawers from '../../shared/Drawer/drawer';
-import Prodactform from '../../shared/Forms/prodact_from';
+import Drawers from '../../shared/drawers/drawer';
+import Prodactform from '../../shared/forms/prodact_from';
+import { update } from '@/app/store/slice/product';
 
-export default function Update({ id,products}) {
+function IteamUpdate({ id,products}) {
 
     const {messageType,message} =useSelector((state)=>state.product)
     const {openNotificationWithIcon,contextHolder}=useContext(NotificationDrawerContext);
@@ -38,11 +39,11 @@ export default function Update({ id,products}) {
       const [open, setOpen] = useState(false);
     
       useEffect(()=>{
-          setFormData({  category: products[0]?.category,
-              description: products[0]?.description,
-              image: products[0]?.image,
-              price: products[0]?.price,
-              title: products[0]?.title
+          setFormData({  category: products?.[0]?.category,
+              description: products?.[0]?.description,
+              image: products?.[0]?.image,
+              price: products?.[0]?.price,
+              title: products?.[0]?.title
             })
 
       },[open]) 
@@ -58,10 +59,10 @@ export default function Update({ id,products}) {
   const onClose = () => {
     setOpen(false);
   };
-  return (<>
+  return (<div>
   {contextHolder}
 <Drawers onClose={onClose}
-open={open} title={`Update Product ${products[0]?.title}`}>
+open={open} title={`Update Product ${products?.[0]?.title}`}>
 <Prodactform 
 formDatas={formData} 
 setFormData={setFormData} 
@@ -69,7 +70,7 @@ imagePreview={imagePreview}
 setImagePreview={setImagePreview}
 handleImageChange={handleImageChange} 
 handleSubmit={handleSubmit} 
-products={products[0]}
+products={products?.[0]}
 handlingUpdate={(e)=>setFormData({ ...formData, [e.target.name]: e.target.value })}
 >
     <Button
@@ -91,6 +92,7 @@ handleClick={showDrawer}>
   </Button>
 <Delete id={id}/>
 </div>
-</>
+</div>
   );
 }
+export default IteamUpdate

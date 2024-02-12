@@ -2,7 +2,7 @@
 
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/shared/Header/header";
+import Header from "./components/shared/header/header";
 
 import { Providers } from "./contexts/Provider";
 import { Drawer_and_NotificationProvider } from "./contexts/notification_and_Drawer_Provider";

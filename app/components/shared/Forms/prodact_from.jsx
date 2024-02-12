@@ -1,5 +1,6 @@
+'use client'
 import React from 'react';
-import Input from '../../shared/Forms/input_form';
+import Input from './input_form';
 import Texatarea from './textarea';
 
  

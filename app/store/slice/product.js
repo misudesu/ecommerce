@@ -31,7 +31,7 @@ const productSlice = createSlice({
             state.messageType=null
         },
         updateProduct:(state, action) => {
-            console.log(action.payload)
+          
             state.product = [action.payload];
             state.loading = false;
             state.messageType="updated"
@@ -44,7 +44,7 @@ const productSlice = createSlice({
             state.message=`${action.payload.title} inserted successfully`
         },
         deleteProduct:(state, action) => {
-            console.log(action.payload)
+         
             state.messageType="Deleted"
             state.loading = false;
             state.message=`${action.payload.title} deleted successfully`

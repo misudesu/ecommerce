@@ -1,3 +1,4 @@
+'use client'
 import { Drawer } from 'antd'
 import React from 'react'
 
