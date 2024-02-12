@@ -6,7 +6,7 @@ const initialState = {
     loading: false,
     error: null,
     message:null,
-    messagType:null
+    messageType:null
 }
 
 const productSlice = createSlice({
@@ -16,43 +16,44 @@ const productSlice = createSlice({
         apiLoading: (state, action) => {
             state.loading = true;
             state.message=null
-            state.messagType=null
+            state.messageType=null
         },
         apiLoadingField: (state, action) => {
             state.loading = false;
             state.error = action.payload
             state.message=null
-            state.messagType='error'
+            state.messageType=null
         },
         singleProduct: (state, action) => {
-            state.product = action.payload;
+            state.product = [action.payload];
             state.loading = false;
             state.message=null
+            state.messageType=null
         },
         updateProduct:(state, action) => {
             console.log(action.payload)
-            state.product = action.payload;
+            state.product = [action.payload];
             state.loading = false;
-            state.messagType='success'
+            state.messageType="updated"
             state.message=`${action.payload.title} updated successfully`
         },
-        insertProduct:(state, action) => {
-            console.log(action.payload)
-            state.product = action.payload;
+        insertProduct:(state, action) => {        
+            state.product.push(action.payload)
             state.loading = false;
-            state.messagType='success'
+            state.messageType="inserted"
             state.message=`${action.payload.title} inserted successfully`
         },
         deleteProduct:(state, action) => {
             console.log(action.payload)
-            state.product = action.payload;
+            state.messageType="Deleted"
             state.loading = false;
-            state.messagType='success'
             state.message=`${action.payload.title} deleted successfully`
         },
         getProduct: (state, action) => {
             state.product = action.payload
             state.loading = false;
+            state.messageType=null
+            state.message=null
         }
     }
 })

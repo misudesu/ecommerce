@@ -1,10 +1,6 @@
 'use client'
 import { Provider } from "react-redux";
 import store from "../store/soreConfiger";
-
-
-
-
 export function Providers({ children }) {
   return (
     <Provider store={store}>

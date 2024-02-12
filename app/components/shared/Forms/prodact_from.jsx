@@ -1,62 +1,55 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Input from '../../shared/Forms/input_form';
-import Button from '../../shared/Buttons/button';
-import { remove, update } from '@/app/store/slice/product';
-import { useDispatch, useSelector } from 'react-redux';
 
  
-  export default function Prodactform({ products,Type,children,setFormData,formData,imagePreview,setImagePreview,handleSubmit,handleImageChange}) {
+  export default function Prodactform({ children,handlingUpdate,formDatas,imagePreview,handleSubmit,handleImageChange}) {
     
   const styleInput = "outline-none w-full text-base font-sm text-gray-900 focus:outline-none bg-transparent focus:bg-transparent";
   const styleContener = "w-full p-5 h-[60px] flex items-center  justify-center gap-[10px] border border-[1px] border-[#EEE] bg-[#FFF] rounded-[30px]";
-  
- 
-
   return (
-    <form className="mt-10 flex flex-col gap-4" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-4" >
       <Input
         Icon=''
         styleContener={styleContener}
         type="text"
         name="title"
-        handlingUpdate={(e) =>
-          setFormData({ ...formData, [e.target.name]: e.target.value })
-        }
+        handlingUpdate={handlingUpdate}
         styleInput={styleInput}
-        placeholder={products.title}
+        value={formDatas?.title}
+        placeholder="title"
       />
       <Input
         Icon=''
         styleContener={styleContener}
         type="text"
         name="category"
-        handlingUpdate={(e) =>
-          setFormData({ ...formData, [e.target.name]: e.target.value })
+        handlingUpdate={handlingUpdate
         }
         styleInput={styleInput}
-        placeholder={products.category}
+        value={formDatas?.category}
+        placeholder="category"
       />
       <Input
         Icon=''
         styleContener={styleContener}
         type="text"
         name="price"
-        handlingUpdate={(e) =>
-          setFormData({ ...formData, [e.target.name]: e.target.value })
+        handlingUpdate={handlingUpdate
         }
         styleInput={styleInput}
-        placeholder={products.price}
+        value={formDatas?.price}
+        placeholder="price"
       />
       <Input
         Icon=''
         styleContener={styleContener}
         type="text"
         name="description"
-        handlingUpdate={(e) =>
-          setFormData({ ...formData, [e.target.name]: e.target.value })
+        handlingUpdate={handlingUpdate
         }
         styleInput={styleInput}
-        placeholder={products.description}
+        placeholder= "description"
+        value={formDatas?.description}
       />
       <div className="flex items-center">
         {imagePreview && (
@@ -70,18 +63,20 @@ import { useDispatch, useSelector } from 'react-redux';
             accept="image/*"
             style={{ display: 'none' }} // Hide the input visually
           />
-          <div
+          <div 
             onClick={(e) => e.target.previousElementSibling.click()}
-            className={styleInput}
+            className={`${styleInput} text-center`}
           >
             Select Image
           </div>
         </div>
       </div>
-      <div className='flex gap-4'>
+   
 {children}
+      
 
-      </div>
+  
     </form>
+  
   );
 }

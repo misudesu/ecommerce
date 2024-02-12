@@ -5,8 +5,7 @@ import "./globals.css";
 import Header from "./components/shared/Header/header";
 
 import { Providers } from "./contexts/Provider";
-import { Notificatation, NotificationContext, NotificationProvider } from "./contexts/notificationProvider";
-import { useContext } from "react";
+import { Drawer_and_NotificationProvider } from "./contexts/notification_and_Drawer_Provider";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Create Next App",
@@ -17,14 +16,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className} suppressHydrationWarning={true}>
-      <main>
       <Providers  >
-  <NotificationProvider>
+  <Drawer_and_NotificationProvider>
+        <Header/>
+      <main>
 
         {children}
-  </NotificationProvider>
-      </Providers>
         </main>
+  </Drawer_and_NotificationProvider>
+      </Providers>
         </body>
     </html>
   );

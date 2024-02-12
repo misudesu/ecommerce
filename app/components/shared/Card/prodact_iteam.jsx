@@ -1,5 +1,3 @@
-import  {icon }from '../../../utils/icons'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 

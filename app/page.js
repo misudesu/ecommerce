@@ -1,12 +1,10 @@
-import Image from "next/image";
-import ViewProduct from "./pages/product/page";
-import RootLayout from "./pages/layout";
+
+import ViewProduct from "./pages/page";
 
 export default function Home() {
 
   return (
-    <RootLayout>
-  <ViewProduct/>
-  </RootLayout>
+    <ViewProduct/>
+
   );
 }
