@@ -1,13 +1,13 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react';
-import Button from '../../shared/buttons/button';
+import Button from '../../shared/Buttons/button';
 
 import { useDispatch, useSelector } from 'react-redux';
 import {  NotificationDrawerContext } from '@/app/contexts/notification_and_Drawer_Provider';
 import Delete from '../delete/page';
 
 import Drawers from '../../shared/drawers/drawer';
-import Prodactform from '../../shared/forms/prodact_from';
+import Prodactform from '../../shared/Forms/prodact_from';
 import { update } from '@/app/store/slice/product';
 
 function IteamUpdate({ id,products}) {

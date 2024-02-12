@@ -1,11 +1,11 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react';
-import Button from '../../shared/buttons/button';
+import Button from '../../shared/Buttons/button';
 import { insert } from '@/app/store/slice/product';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {  NotificationDrawerContext } from '@/app/contexts/notification_and_Drawer_Provider';
-import Prodactform from '../../shared/forms/prodact_from';
+import Prodactform from '../../shared/Forms/prodact_from';
 import Drawers from '../../shared/drawers/drawer';
 
  function AddProduct({ opens,onClose }) {

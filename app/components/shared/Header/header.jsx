@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Button from '../buttons/button'
+import Button from '../Buttons/button'
 
 const navigation = [
   { name: 'All Iteam', href: '/', current: true },

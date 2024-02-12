@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext, useEffect } from 'react';
-import Button from '../../shared/buttons/button';
+import Button from '../../shared/Buttons/button';
 import { remove } from '@/app/store/slice/product';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';

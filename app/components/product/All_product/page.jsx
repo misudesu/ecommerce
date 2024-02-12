@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { get } from '@/app/store/slice/product'
 import Card from '../../shared/card/card'
 import { NotificationDrawerContext } from '@/app/contexts/notification_and_Drawer_Provider'
-import Button from '../../shared/buttons/button'
+import Button from '../../shared/Buttons/button'
 
 import { Spin } from 'antd'
 import AddProduct from '../add/page'
