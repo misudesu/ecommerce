@@ -23,8 +23,8 @@ export default function Prodact() {
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       <div className='flex justify-between'>
 <div>
-<h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-      <p className="text-1xl font-bold tracking-tight text-gray-400">this week</p>
+<h2 className="text-lg lg:text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+      <p className="text-lg lg:text-1xl font-bold tracking-tight text-gray-400">this week</p>
 </div>
 <div>
   <AddProduct opens={open} setOpen={setOpen} onClose={onClose}/>

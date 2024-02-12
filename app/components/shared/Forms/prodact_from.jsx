@@ -1,11 +1,14 @@
 import React from 'react';
 import Input from '../../shared/Forms/input_form';
+import Texatarea from './textarea';
 
  
   export default function Prodactform({ children,handlingUpdate,formDatas,imagePreview,handleSubmit,handleImageChange}) {
     
   const styleInput = "outline-none w-full text-base font-sm text-gray-900 focus:outline-none bg-transparent focus:bg-transparent";
   const styleContener = "w-full p-5 h-[60px] flex items-center  justify-center gap-[10px] border border-[1px] border-[#EEE] bg-[#FFF] rounded-[30px]";
+  const textareastyleContener = "w-full p-5  flex items-center  focus:outline-none bg-transparent focus:bg-transparent justify-center gap-[10px] border border-[1px] border-[#EEE] bg-[#FFF] rounded-[30px]";
+  
   return (
     <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-4" >
       <Input
@@ -40,14 +43,14 @@ import Input from '../../shared/Forms/input_form';
         value={formDatas?.price}
         placeholder="price"
       />
-      <Input
+      <Texatarea
         Icon=''
-        styleContener={styleContener}
+        styleContener={styleInput}
         type="text"
         name="description"
         handlingUpdate={handlingUpdate
         }
-        styleInput={styleInput}
+        styleInput={textareastyleContener}
         placeholder= "description"
         value={formDatas?.description}
       />
