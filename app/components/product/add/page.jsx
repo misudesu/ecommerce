@@ -9,7 +9,7 @@ import Prodactform from '../../shared/Forms/prodact_from';
 import Drawers from '../../shared/Drawer/drawer';
 
 export default function AddProduct({ opens,onClose }) {
-    const {message,product,messageType} =useSelector((state)=>state.product)
+    const {message,messageType} =useSelector((state)=>state.product)
     const {openNotificationWithIcon,contextHolder}=useContext(NotificationDrawerContext);
     const dispatch=useDispatch()
   const [formData, setFormData] = useState({
@@ -45,7 +45,7 @@ export default function AddProduct({ opens,onClose }) {
       if(messageType==='inserted'){
         message&&openNotificationWithIcon('success','updated',message)
       }
-      },[message])
+      },[message,messageType])
   return (<>
   {contextHolder}
   <Drawers onClose={onClose}
