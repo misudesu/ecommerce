@@ -17,6 +17,7 @@ const productSlice = createSlice({
             state.loading = true;
             state.message=null
             state.messageType=null
+            state.error=null
         },
         apiLoadingField: (state, action) => {
             state.loading = false;

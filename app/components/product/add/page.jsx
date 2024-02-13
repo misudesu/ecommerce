@@ -7,18 +7,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  NotificationDrawerContext } from '@/app/contexts/notification_and_Drawer_Provider';
 import Prodactform from '../../shared/Forms/prodact_from';
 import Drawers from '../../shared/drawers/drawer';
+import error from '@/app/store/middleware/error';
 
  function AddProduct({ opens,onClose }) {
-    const {message,messageType} =useSelector((state)=>state.product)
+    const {message,messageType,error} =useSelector((state)=>state.product)
     const {openNotificationWithIcon,contextHolder}=useContext(NotificationDrawerContext);
     const dispatch=useDispatch()
     const [imagePreview, setImagePreview] = useState(null);
   const [formData, setFormData] = useState({
-    category: '',
-    description: '',
-    image: '',
-    price: '',
-    title: ''
+    category: null,
+    description: null,
+    image: null,
+    price: null,
+    title: null
   });
 
 
@@ -31,21 +32,26 @@ import Drawers from '../../shared/drawers/drawer';
       };
       const handleSubmit = (e) => {
         e.preventDefault();
-            dispatch(insert(formData))
+      
+          dispatch(insert(formData))
+       
       };
       useEffect(()=>{
-       
-    setFormData({
-        category: '',
-        description: '',
-        image: '',
-        price: '',
-        title: ''
-      })
       if(messageType==='inserted'){
+        setFormData({
+          category: '',
+          description: '',
+          image: '',
+          price: '',
+          title: ''
+        })
         message&&openNotificationWithIcon('success','updated',message)
+      }else{
+       error&&openNotificationWithIcon('error','error',error.error)
       }
-      },[messageType])
+      },[messageType,error])
+
+     
   return (<div>
   {contextHolder}
   <Drawers onClose={onClose}

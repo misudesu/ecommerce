@@ -9,10 +9,9 @@ import Delete from '../delete/page';
 import Drawers from '../../shared/drawers/drawer';
 import Prodactform from '../../shared/Forms/prodact_from';
 import { update } from '@/app/store/slice/product';
-
 function IteamUpdate({ id,products}) {
 
-    const {messageType,message} =useSelector((state)=>state.product)
+    const {messageType,message,error} =useSelector((state)=>state.product)
     const {openNotificationWithIcon,contextHolder}=useContext(NotificationDrawerContext);
     const dispatch=useDispatch()
 
@@ -50,8 +49,10 @@ function IteamUpdate({ id,products}) {
       useEffect(()=>{
         if(messageType==="updated"){
             message&&openNotificationWithIcon('success','updated',message)
+         }else{
+          error&&openNotificationWithIcon('error','error',error.error)
          }
-      },[messageType])    
+      },[messageType,error])    
      
   const showDrawer = () => {
     setOpen(true);
