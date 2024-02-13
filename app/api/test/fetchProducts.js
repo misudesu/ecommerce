@@ -1,6 +1,0 @@
-// fetchProducts.js
-
-
-  
-
-  
